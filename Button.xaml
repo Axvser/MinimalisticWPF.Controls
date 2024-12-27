@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MinimalisticWPF.Controls.Button"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MinimalisticWPF.Controls"
+             xmlns:vm="clr-namespace:MinimalisticWPF.Controls.ViewModel"
+             xmlns:cvt="clr-namespace:MinimalisticWPF.Controls.Convertor"
+             mc:Ignorable="d"
+             x:Name="Root"
+             d:DesignHeight="100" d:DesignWidth="300" 
+             Foreground="White"
+             MouseEnter="Root_MouseEnter" 
+             MouseLeave="Root_MouseLeave" 
+             PreviewMouseLeftButtonDown="Root_PreviewMouseLeftButtonDown" 
+             PreviewMouseLeftButtonUp="Root_PreviewMouseLeftButtonUp">
+    <UserControl.DataContext>
+        <vm:ButtonVM x:Name="ViewModel"/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <cvt:DoubleConvertor x:Key="doublecvt" Rate="0.7"/>
+    </UserControl.Resources>
+    <UserControl.Template>
+        <ControlTemplate>
+            <Grid>
+                <Border ClipToBounds="True" 
+                        Opacity="{Binding BorderOpacity}" 
+                        CornerRadius="{Binding CornerRadius}" 
+                        BorderThickness="{Binding BorderThickness}" 
+                        BorderBrush="{Binding BorderBrush}" 
+                        Background="{Binding Background}"/>
+                <TextBlock Text="{Binding Text}"
+                   FontSize="{Binding ElementName=Root,Path=ActualHeight,Converter={StaticResource doublecvt}}"
+                   Foreground="{Binding TextBrush}"
+                   TextAlignment="Center" 
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>
