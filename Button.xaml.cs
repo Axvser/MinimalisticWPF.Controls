@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MinimalisticWPF.Controls
 {
@@ -22,22 +12,32 @@ namespace MinimalisticWPF.Controls
             InitializeComponent();
         }
 
+        public Brush DarkHover
+        {
+            get => ViewModel.DarkHoveredForeground;
+            set => ViewModel.DarkHoveredForeground = value;
+        }
+        public Brush LightHover
+        {
+            get => ViewModel.LightHoveredForeground;
+            set => ViewModel.LightHoveredForeground = value;
+        }
+
+        public Brush DarkNoHover
+        {
+            get => ViewModel.DarkNoHoveredForeground;
+            set => ViewModel.DarkNoHoveredForeground = value;
+        }
+        public Brush LightNoHover
+        {
+            get => ViewModel.LightNoHoveredForeground;
+            set => ViewModel.LightNoHoveredForeground = value;
+        }
+
         public string Text
         {
             get => ViewModel.Text;
             set => ViewModel.Text = value;
-        }
-
-        public Brush DarkHoverBackground
-        {
-            get => ViewModel.DarkHoverBackground;
-            set => ViewModel.DarkHoverBackground = value;
-        }
-
-        public Brush LightHoverBackground
-        {
-            get => ViewModel.LightHoverBackground;
-            set => ViewModel.LightHoverBackground = value;
         }
 
         private int _clickdowntime = 0;
@@ -48,26 +48,22 @@ namespace MinimalisticWPF.Controls
         {
             ViewModel.IsHover = true;
         }
-
         private void Root_MouseLeave(object sender, MouseEventArgs e)
         {
             ViewModel.IsHover = false;
             _clickdowntime = 0;
             _clickuptime = 0;
         }
-
         private void Root_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _clickdowntime++;
             CheckIfClick(e);
         }
-
         private void Root_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _clickuptime++;
             CheckIfClick(e);
         }
-
         private void CheckIfClick(MouseButtonEventArgs e)
         {
             if (_clickdowntime > 0 && _clickuptime > 0)

@@ -15,7 +15,7 @@
              PreviewMouseLeftButtonDown="Root_PreviewMouseLeftButtonDown" 
              PreviewMouseLeftButtonUp="Root_PreviewMouseLeftButtonUp">
     <UserControl.DataContext>
-        <vm:ButtonVM x:Name="ViewModel"/>
+        <vm:ButtonViewModel x:Name="ViewModel"/>
     </UserControl.DataContext>
     <UserControl.Resources>
         <cvt:DoubleConvertor x:Key="doublecvt" Rate="0.7"/>
@@ -31,7 +31,7 @@
                         Background="{Binding Background}"/>
                 <TextBlock Text="{Binding Text}"
                    FontSize="{Binding ElementName=Root,Path=ActualHeight,Converter={StaticResource doublecvt}}"
-                   Foreground="{Binding TextBrush}"
+                   Foreground="{Binding Foreground}"
                    TextAlignment="Center" 
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
