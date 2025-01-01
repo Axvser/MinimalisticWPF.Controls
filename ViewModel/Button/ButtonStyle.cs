@@ -1,14 +1,16 @@
 ﻿using MinimalisticWPF.Animator;
-using System.Windows;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows;
 
 namespace MinimalisticWPF.Controls.ViewModel
 {
     public partial class ButtonViewModel
     {
-        [Observable]
-        private string _text = string.Empty;
-
         [Constructor]
         private void SetInitialTheme()
         {

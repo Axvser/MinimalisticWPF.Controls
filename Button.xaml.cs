@@ -23,17 +23,6 @@ namespace MinimalisticWPF.Controls
             set => ViewModel.LightHoveredForeground = value;
         }
 
-        public Brush DarkNoHover
-        {
-            get => ViewModel.DarkNoHoveredForeground;
-            set => ViewModel.DarkNoHoveredForeground = value;
-        }
-        public Brush LightNoHover
-        {
-            get => ViewModel.LightNoHoveredForeground;
-            set => ViewModel.LightNoHoveredForeground = value;
-        }
-
         public string Text
         {
             get => ViewModel.Text;
