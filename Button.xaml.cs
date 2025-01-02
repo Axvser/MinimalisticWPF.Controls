@@ -1,26 +1,17 @@
-﻿using System.Windows;
+﻿using MinimalisticWPF.Controls.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
 namespace MinimalisticWPF.Controls
 {
+    [DataContextConfig(nameof(ButtonViewModel))]
     public partial class Button : UserControl
     {
         public Button()
         {
             InitializeComponent();
-        }
-
-        public Brush DarkHover
-        {
-            get => ViewModel.DarkHoveredForeground;
-            set => ViewModel.DarkHoveredForeground = value;
-        }
-        public Brush LightHover
-        {
-            get => ViewModel.LightHoveredForeground;
-            set => ViewModel.LightHoveredForeground = value;
         }
 
         public string Text
@@ -35,11 +26,11 @@ namespace MinimalisticWPF.Controls
 
         private void Root_MouseEnter(object sender, MouseEventArgs e)
         {
-            ViewModel.IsHover = true;
+            ViewModel.IsHovered = true;
         }
         private void Root_MouseLeave(object sender, MouseEventArgs e)
         {
-            ViewModel.IsHover = false;
+            ViewModel.IsHovered = false;
             _clickdowntime = 0;
             _clickuptime = 0;
         }
