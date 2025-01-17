@@ -8,8 +8,7 @@
              xmlns:cvt="clr-namespace:MinimalisticWPF.Controls.Convertor"
              mc:Ignorable="d"
              x:Name="Root"
-             d:DesignHeight="100" d:DesignWidth="300" 
-             Foreground="White"
+             d:DesignHeight="100" d:DesignWidth="300"
              MouseEnter="Root_MouseEnter" 
              MouseLeave="Root_MouseLeave" 
              PreviewMouseLeftButtonDown="Root_PreviewMouseLeftButtonDown" 
@@ -23,18 +22,19 @@
     <UserControl.Template>
         <ControlTemplate>
             <Grid>
-                <Border ClipToBounds="True" 
-                        Opacity="{Binding BorderOpacity}" 
+                <Border ClipToBounds="True"
+                        Grid.ZIndex="1"
                         CornerRadius="{Binding CornerRadius}" 
                         BorderThickness="{Binding BorderThickness}" 
                         BorderBrush="{Binding BorderBrush}" 
                         Background="{Binding Background}"/>
                 <TextBlock Text="{Binding Text}"
-                   FontSize="{Binding ElementName=Root,Path=ActualHeight,Converter={StaticResource doublecvt}}"
-                   Foreground="{Binding Foreground}"
-                   TextAlignment="Center" 
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+                           Grid.ZIndex="2"
+                           FontSize="{Binding ElementName=Root,Path=ActualHeight,Converter={StaticResource doublecvt}}"
+                           Foreground="{Binding Foreground}"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
             </Grid>
         </ControlTemplate>
     </UserControl.Template>

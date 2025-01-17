@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace MinimalisticWPF.Controls
 {
-    [DataContextConfig(nameof(ButtonViewModel))]
+    [DataContextConfig(nameof(ButtonViewModel), "MinimalisticWPF.Controls.ViewModel")]
     public partial class Button : UserControl
     {
         public Button()

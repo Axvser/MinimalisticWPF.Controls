@@ -1,11 +1,13 @@
-﻿using MinimalisticWPF.Animator;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows;
+using MinimalisticWPF.Theme;
+using MinimalisticWPF.TransitionSystem;
+using MinimalisticWPF.Extension;
 
 namespace MinimalisticWPF.Controls.ViewModel
 {
@@ -41,13 +43,17 @@ namespace MinimalisticWPF.Controls.ViewModel
         [Light("Transparent")]
         private Brush _background = Brushes.Transparent;
 
-        public partial void OnThemeChanging(Type? oldTheme, Type newTheme)
+        partial void OnThemeChanging(Type? oldTheme, Type newTheme)
         {
-            Transition.DisposeSafe(this);
+            Transition.Dispose(this);
         }
-        public partial void OnThemeChanged(Type? oldTheme, Type newTheme)
+        partial void OnThemeChanged(Type? oldTheme, Type newTheme)
         {
-            UpdateTransitionBoard();
+            if (oldTheme != newTheme)
+            {
+                UpdateTransitionBoard();
+            }
+            this.BeginTransition(IsHovered ? HoveredTransition : NoHoveredTransition);
         }
     }
 }
