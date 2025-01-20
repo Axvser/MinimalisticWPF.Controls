@@ -35,15 +35,15 @@ namespace MinimalisticWPF.Controls.ViewModel
         }
 
         [Observable]
-        private double maxAngle = (double)360;
+        private double maxAngle = 360;
         partial void OnMaxAngleChanged(double oldValue, double newValue)
         {
             CurrentAngle = StartAngle + EndAngle * Progress;
         }
 
         [Observable]
-        private double currentAngle = (double)0;
+        private double currentAngle = 0;
         [Observable]
-        private double lineLength = (double)0;
+        private double lineLength = 0;
     }
 }
