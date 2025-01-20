@@ -11,13 +11,12 @@ using MinimalisticWPF.Extension;
 
 namespace MinimalisticWPF.Controls.ViewModel
 {
-    public partial class ButtonViewModel
+    public partial class Button
     {
         [Constructor]
         private void SetInitialTheme()
         {
             CurrentTheme = typeof(Dark);
-
             HoveredTransition.SetParams(TransitionParams.Hover);
             NoHoveredTransition.SetParams(TransitionParams.Hover);
         }
@@ -43,17 +42,20 @@ namespace MinimalisticWPF.Controls.ViewModel
         [Light("Transparent")]
         private Brush _background = Brushes.Transparent;
 
+        [Observable(CanHover: true, SetterValidation: SetterValidations.Custom)]
+        private double _backOpacity = (double)1;
+        private partial bool BackOpacityIntercepting(double oldValue, double newValue)
+        {
+            return newValue < 0;
+        }
+
         partial void OnThemeChanging(Type? oldTheme, Type newTheme)
         {
             Transition.Dispose(this);
         }
         partial void OnThemeChanged(Type? oldTheme, Type newTheme)
         {
-            if (oldTheme != newTheme)
-            {
-                UpdateTransitionBoard();
-            }
-            this.BeginTransition(IsHovered ? HoveredTransition : NoHoveredTransition);
+            UpdateTransitionBoard();
         }
     }
 }

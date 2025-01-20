@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace MinimalisticWPF.Controls.ViewModel
 {
-    public partial class ButtonViewModel
+    public partial class Button
     {
         [Observable]
         private string _text = string.Empty;

@@ -14,20 +14,22 @@
              PreviewMouseLeftButtonDown="Root_PreviewMouseLeftButtonDown" 
              PreviewMouseLeftButtonUp="Root_PreviewMouseLeftButtonUp">
     <UserControl.DataContext>
-        <vm:ButtonViewModel x:Name="ViewModel"/>
+        <vm:Button x:Name="ViewModel"/>
     </UserControl.DataContext>
     <UserControl.Resources>
         <cvt:DoubleConvertor x:Key="doublecvt" Rate="0.7"/>
     </UserControl.Resources>
     <UserControl.Template>
         <ControlTemplate>
-            <Grid>
+            <Grid Opacity="{TemplateBinding Opacity}">
                 <Border ClipToBounds="True"
                         Grid.ZIndex="1"
                         CornerRadius="{Binding CornerRadius}" 
                         BorderThickness="{Binding BorderThickness}" 
-                        BorderBrush="{Binding BorderBrush}" 
-                        Background="{Binding Background}"/>
+                        BorderBrush="{Binding BorderBrush}"/>
+                <Border Background="{Binding Background}"
+                        Opacity="{Binding BackOpacity}"
+                        CornerRadius="{Binding CornerRadius}"/>
                 <TextBlock Text="{Binding Text}"
                            Grid.ZIndex="2"
                            FontSize="{Binding ElementName=Root,Path=ActualHeight,Converter={StaticResource doublecvt}}"

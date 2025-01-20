@@ -1,12 +1,10 @@
-﻿using MinimalisticWPF.Controls.ViewModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace MinimalisticWPF.Controls
 {
-    [DataContextConfig(nameof(ButtonViewModel), "MinimalisticWPF.Controls.ViewModel")]
+    [DataContextConfig(nameof(Button), "MinimalisticWPF.Controls.ViewModel")]
     public partial class Button : UserControl
     {
         public Button()
