@@ -16,6 +16,12 @@
     <UserControl.Template>
         <ControlTemplate>
             <Grid Width="{Binding BarWidth}" Height="{Binding BarHeight}">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="{Binding ScaleX}"  ScaleY="{Binding ScaleY}"/>
+                        <TranslateTransform X="{Binding TransX}" Y="{Binding TransY}"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
                 <Grid Visibility="{Binding RingVisibility}">
                     <ed:Arc StartAngle="{Binding StartAngle}" EndAngle="{Binding CurrentAngle}" Fill="{Binding ForeFill}" ArcThickness="{Binding Thickness}" Stretch="None" Grid.ZIndex="1"/>
                     <ed:Arc StartAngle="{Binding StartAngle}" EndAngle="{Binding MaxAngle}" Fill="{Binding BackFill}" ArcThickness="{Binding Thickness}" Stretch="None" Grid.ZIndex="0"/>

@@ -28,12 +28,16 @@ namespace MinimalisticWPF.Controls.ViewModel
                     LineVisibility = Visibility.Collapsed;
                     BarHeight = BarWidth;
                     CurrentAngle = StartAngle + EndAngle * Progress;
+                    ScaleY = flipY ? -1 : 1;
+                    TransY = flipY ? BarHeight : 0;
                     return;
                 case ProgressBarShape.Line:
                     LineVisibility = Visibility.Visible;
                     RingVisibility = Visibility.Collapsed;
                     BarHeight = Thickness;
                     LineLength = BarWidth * Progress;
+                    ScaleY = 1;
+                    TransY = 0;
                     return;
             }
         }
@@ -65,5 +69,32 @@ namespace MinimalisticWPF.Controls.ViewModel
         private Brush foreFill = Brushes.Cyan;
         [Observable(CanDependency: true)]
         private Brush backFill = Brushes.Gray;
+
+        [Observable(CanDependency: true)]
+        private bool flipX = false;
+        partial void OnFlipXChanged(bool oldValue, bool newValue)
+        {
+            ScaleX = newValue ? -1 : 1;
+            TransX = newValue ? BarWidth : 0;
+        }
+        [Observable(CanDependency: true)]
+        private bool flipY = false;
+        partial void OnFlipYChanged(bool oldValue, bool newValue)
+        {
+            if (shape == ProgressBarShape.Ring)
+            {
+                ScaleY = newValue ? -1 : 1;
+                TransY = newValue ? BarHeight : 0;
+            }
+        }
+
+        [Observable]
+        private double scaleX = 1;
+        [Observable]
+        private double scaleY = 1;
+        [Observable]
+        private double transX = 0;
+        [Observable]
+        private double transY = 0;
     }
 }
