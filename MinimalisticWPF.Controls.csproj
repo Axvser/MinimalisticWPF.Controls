@@ -13,11 +13,12 @@
     <Description>Design some user controls based on [ MinimalisticWPF ]</Description>
     <Authors>Axvser</Authors>
     <PackageProjectUrl>https://github.com/Axvser/MinimalisticWPF.Controls</PackageProjectUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MinimalisticWPF" Version="2.7.5" />
-    <PackageReference Include="MinimalisticWPF.Generator" Version="2.0.0" />
+    <PackageReference Include="MinimalisticWPF" Version="2.8.0" />
+    <PackageReference Include="MinimalisticWPF.Generator" Version="2.1.3" />
     <PackageReference Include="NetCore5.0.Microsoft.Expression.Drawing" Version="1.0.0" />
   </ItemGroup>
 
@@ -26,6 +27,11 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModel\NavigateBox\" />
+    <Folder Include="ViewModel\Notification\" />
   </ItemGroup>
 
 </Project>
