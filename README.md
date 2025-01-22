@@ -80,6 +80,8 @@ A more flexible look
                 Progress="0.3"
                 FlipX="True"
                 FlipY="False"
-                ForeFill="Cyan"
-                BackFill="Gray"/>
+                DarkForeFill="Cyan"
+                DarkBackFill="Gray"
+                LightForeFill="Violet"          
+                LightBackFill="Gray"/>
 ```

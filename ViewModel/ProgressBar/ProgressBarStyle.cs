@@ -7,6 +7,12 @@ namespace MinimalisticWPF.Controls.ViewModel
 {
     public partial class ProgressBar
     {
+        [Constructor]
+        private void SetInitialTheme()
+        {
+            CurrentTheme = typeof(Dark);
+        }
+
         [Observable]
         private double barWidth = 200;
         [Observable]
@@ -66,8 +72,12 @@ namespace MinimalisticWPF.Controls.ViewModel
         }
 
         [Observable(CanDependency: true)]
+        [Dark(nameof(Brushes.Cyan))]
+        [Light(nameof(Brushes.Violet))]
         private Brush foreFill = Brushes.Cyan;
         [Observable(CanDependency: true)]
+        [Dark(nameof(Brushes.Gray))]
+        [Light(nameof(Brushes.Gray))]
         private Brush backFill = Brushes.Gray;
 
         [Observable(CanDependency: true)]
