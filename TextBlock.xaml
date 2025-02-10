@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="MinimalisticWPF.Controls.TextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MinimalisticWPF.Controls"
+             xmlns:vm="clr-namespace:MinimalisticWPF.Controls.ViewModel"
+             xmlns:cvt="clr-namespace:MinimalisticWPF.Controls.Convertor"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="800" HorizontalContentAlignment="Left">
+    <UserControl.DataContext>
+        <vm:TextBox x:Name="ViewModel"/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <cvt:DoubleConvertor x:Key="doublecvt" Rate="0.618"/>
+    </UserControl.Resources>
+    <UserControl.Template>
+        <ControlTemplate>
+            <Grid>
+                <Border BorderThickness="0,0,0,2" 
+                        Width="{Binding VisualLength}" 
+                        BorderBrush="{Binding CaretBrush}" 
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                        Margin="3" 
+                        Grid.ZIndex="1"/>
+                <Border CornerRadius="0" 
+                        BorderBrush="{Binding BorderBrush}" 
+                        BorderThickness="0,0,0,2" 
+                        Margin="3">
+                    <TextBox FontSize="{TemplateBinding ActualHeight,Converter={StaticResource doublecvt}}" 
+                             Foreground="{Binding Foreground}" 
+                             CaretBrush="{Binding CaretBrush}" 
+                             TextChanged="TextBox_TextChanged" 
+                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                             VerticalContentAlignment="Center"
+                             Grid.ZIndex="1">
+                        <TextBox.Template>
+                            <ControlTemplate>
+                                <ScrollViewer Background="{Binding Background}" x:Name="PART_ContentHost"/>
+                            </ControlTemplate>
+                        </TextBox.Template>
+                    </TextBox>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

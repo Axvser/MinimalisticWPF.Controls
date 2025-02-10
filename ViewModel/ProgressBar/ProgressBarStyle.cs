@@ -25,6 +25,36 @@ namespace MinimalisticWPF.Controls.ViewModel
 
         [Observable(CanDependency: true)]
         private ProgressBarShape shape = ProgressBarShape.Ring;
+
+        [Observable(CanDependency: true)]
+        private double size = (double)200;
+
+        [Observable(CanDependency: true)]
+        private double _thickness = (double)3;
+
+        [Observable(CanDependency: true)]
+        [Dark(nameof(Brushes.Cyan))]
+        [Light(nameof(Brushes.Violet))]
+        private Brush foreFill = Brushes.Cyan;
+        [Observable(CanDependency: true)]
+        [Dark(nameof(Brushes.Gray))]
+        [Light(nameof(Brushes.Gray))]
+        private Brush backFill = Brushes.Gray;
+
+        [Observable(CanDependency: true)]
+        private bool flipX = false;
+        [Observable(CanDependency: true)]
+        private bool flipY = false;
+
+        [Observable]
+        private double scaleX = 1;
+        [Observable]
+        private double scaleY = 1;
+        [Observable]
+        private double transX = 0;
+        [Observable]
+        private double transY = 0;
+
         partial void OnShapeChanged(ProgressBarShape oldValue, ProgressBarShape newValue)
         {
             switch (newValue)
@@ -47,9 +77,6 @@ namespace MinimalisticWPF.Controls.ViewModel
                     return;
             }
         }
-
-        [Observable(CanDependency: true)]
-        private double size = (double)200;
         partial void OnSizeChanged(double oldValue, double newValue)
         {
             if (shape == ProgressBarShape.Ring)
@@ -58,9 +85,6 @@ namespace MinimalisticWPF.Controls.ViewModel
                 BarHeight = newValue;
             }
         }
-
-        [Observable(CanDependency: true)]
-        private double _thickness = (double)3;
         partial void OnThicknessChanged(double oldValue, double newValue)
         {
             switch (shape)
@@ -70,25 +94,11 @@ namespace MinimalisticWPF.Controls.ViewModel
                     return;
             }
         }
-
-        [Observable(CanDependency: true)]
-        [Dark(nameof(Brushes.Cyan))]
-        [Light(nameof(Brushes.Violet))]
-        private Brush foreFill = Brushes.Cyan;
-        [Observable(CanDependency: true)]
-        [Dark(nameof(Brushes.Gray))]
-        [Light(nameof(Brushes.Gray))]
-        private Brush backFill = Brushes.Gray;
-
-        [Observable(CanDependency: true)]
-        private bool flipX = false;
         partial void OnFlipXChanged(bool oldValue, bool newValue)
         {
             ScaleX = newValue ? -1 : 1;
             TransX = newValue ? BarWidth : 0;
         }
-        [Observable(CanDependency: true)]
-        private bool flipY = false;
         partial void OnFlipYChanged(bool oldValue, bool newValue)
         {
             if (shape == ProgressBarShape.Ring)
@@ -97,14 +107,5 @@ namespace MinimalisticWPF.Controls.ViewModel
                 TransY = newValue ? BarHeight : 0;
             }
         }
-
-        [Observable]
-        private double scaleX = 1;
-        [Observable]
-        private double scaleY = 1;
-        [Observable]
-        private double transX = 0;
-        [Observable]
-        private double transY = 0;
     }
 }

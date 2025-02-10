@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0-windows7.0;net7.0-windows7.0;net8.0-windows7.0;net9.0-windows7.0</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows7.0;net8.0-windows7.0;net9.0-windows7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -13,12 +13,12 @@
     <Description>Design some user controls based on [ MinimalisticWPF ]</Description>
     <Authors>Axvser</Authors>
     <PackageProjectUrl>https://github.com/Axvser/MinimalisticWPF.Controls</PackageProjectUrl>
-    <Version>1.0.2</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MinimalisticWPF" Version="2.8.0" />
-    <PackageReference Include="MinimalisticWPF.Generator" Version="2.3.5" />
+    <PackageReference Include="MinimalisticWPF" Version="2.9.0" />
+    <PackageReference Include="MinimalisticWPF.Generator" Version="2.3.8" />
     <PackageReference Include="NetCore5.0.Microsoft.Expression.Drawing" Version="1.0.0" />
   </ItemGroup>
 
@@ -27,11 +27,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModel\NavigateBox\" />
-    <Folder Include="ViewModel\Notification\" />
   </ItemGroup>
 
 </Project>

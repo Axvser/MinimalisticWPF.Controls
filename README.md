@@ -1,22 +1,22 @@
 # MinimalisticWPF.Controls
 
-###### Design some user controls based on [ MinimalisticWPF ]
-
 The project aims to explore good practices for implementing front-ends in WPF projects through the use of C#
 
-- Almost 90% of the work of designing user controls is done by using C#
-  - 25% by yourself
-  - 65% by source generator
+- Complex front-end effects can be achieved with a small amount of C# code
 - Follow the MVVM design pattern
-  - partial ViewModel_Data _> abstract the business data of the control
-  - partial ViewModel_Style _> abstract the style data of the control
-  - partial ¡­¡­ _> by splitting a ViewModel into multiple parts, the development work on the front and back end is split into those parts to achieve separation
 
-It is a validation of the usability of the [ MinimalisticWPF ](https://github.com/Axvser/MinimalisticWPF) library
+Go ¡ú
+
+- [github](https://github.com/Axvser/MinimalisticWPF.Controls)
+- [nuget](https://www.nuget.org/packages/MinimalisticWPF.Controls/)
+
+Dependency ¡ú
+
+[MinimalisticWPF](https://github.com/Axvser/MinimalisticWPF)
 
 ---
 
-## UserControls _>
+## UserControl Directory _>
 
 ```xml
 xmlns:mn="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Controls"
@@ -24,15 +24,12 @@ xmlns:mn="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Contro
 
 - [Button](#Button)
 - [ProgressBar](#ProgressBar)
-- ¡­¡­ Under development
 
 ---
 
-## ¢ñ Button
+## Button
 
-Just set the dependeny properties and your buttons will look different in different themes
-- With theme switching effects
-- Has hover effects
+Use the following template to set the appearance of your buttons
 
 ```xml
 <Style TargetType="mn:Button" x:Key="ButtonWithDynamicTheme">
@@ -64,7 +61,9 @@ Apply the Style
 <mn:Button Text="MyButton" Click="Button_Click" Style="{StaticResource ButtonWithDynamicTheme}"/>
 ```
 
-## ¢ò ProgressBar
+---
+
+## ProgressBar
 
 A more flexible look
 - Support to switch between ring and bar
@@ -85,3 +84,25 @@ A more flexible look
                 LightForeFill="Violet"          
                 LightBackFill="Gray"/>
 ```
+
+---
+
+## TextBox
+
+Font size is automatically adjusted and all input fields share a theme
+
+```xml
+            <mn:TextBox OnTextChanged="TextBox_OnTextChanged"
+                        DarkBackground="#32FFFFFF"
+                        LightBackground="#32000000"
+                        DarkBorderBrush="White"
+                        LightBorderBrush="Black"
+                        DarkCaretBrush="Cyan"
+                        LightCaretBrush="Lime"
+                        DarkForeground="White"
+                        LightForeground="Black"
+```
+
+There is also a read-only Text property to get the current text content
+
+---

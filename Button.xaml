@@ -17,7 +17,7 @@
         <vm:Button x:Name="ViewModel"/>
     </UserControl.DataContext>
     <UserControl.Resources>
-        <cvt:DoubleConvertor x:Key="doublecvt" Rate="0.7"/>
+        <cvt:DoubleConvertor x:Key="doublecvt" Rate="0.618"/>
     </UserControl.Resources>
     <UserControl.Template>
         <ControlTemplate>
