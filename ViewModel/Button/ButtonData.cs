@@ -5,7 +5,7 @@ namespace MinimalisticWPF.Controls.ViewModel
 {
     public partial class Button
     {
-        [Observable]
+        [Observable(CanDependency:true)]
         private string _text = string.Empty;
     }
 }

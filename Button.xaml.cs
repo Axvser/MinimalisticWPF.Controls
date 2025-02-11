@@ -12,12 +12,6 @@ namespace MinimalisticWPF.Controls
             InitializeComponent();
         }
 
-        public string Text
-        {
-            get => ViewModel.Text;
-            set => ViewModel.Text = value;
-        }
-
         private int _clickdowntime = 0;
         private int _clickuptime = 0;
         public event RoutedEventHandler? Click;

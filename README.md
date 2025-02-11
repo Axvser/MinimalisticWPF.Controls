@@ -14,9 +14,13 @@ Dependency ¡ú
 
 [MinimalisticWPF](https://github.com/Axvser/MinimalisticWPF)
 
+Versions ¡ú
+
+[V1.1.0](#) `LTS`
+
 ---
 
-## UserControl Directory _>
+## `UserControls`
 
 ```xml
 xmlns:mn="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Controls"
@@ -27,7 +31,8 @@ xmlns:mn="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Contro
 - [TextBox](#TextBox)
 - [TopBar](#TopBar)
 - [Notification](#Notification)
-- [Navigator](#Navigator)
+
+Not all controls are very extensible, this project is just a demonstration of how you can use the `MinimalisticWPF` library to build user controls
 
 ---
 
@@ -59,7 +64,7 @@ Use the following template to set the appearance of your buttons
   </Style>
 ```
 
-Apply the Style
+`Apply the Style`
 
 ```xml
 <mn:Button Text="MyButton" Click="Button_Click" Style="{StaticResource ButtonWithDynamicTheme}"/>
@@ -70,7 +75,7 @@ Apply the Style
 ## ProgressBar
 
 A more flexible look
-- Support to switch between ring and bar
+- Support to switch between `ring and line`
 - The Angle of the ring is adjustable
 - Can be flipped on the X or Y axis
 
@@ -109,8 +114,8 @@ Font size is automatically adjusted and all input fields share a theme
                         NoHoveredMargin="3"/>
 ```
 
-There is also a read-only Text property to get the current text content
-
+There is also a read-only `Text` property to get the current text content
+ 
 ---
 
 ## TopBar
@@ -125,12 +130,22 @@ This can help you quickly replace the zoom interaction provided by the default w
 
 ## Notification
 
-
-
----
-
-## Navigator
-
-
+Glass style notification window, supporting light and dark theme.
+- `await` Warn() / Ask() / Message()
+- The bool value indicates whether the window is at the top
+ 
+```csharp
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (await Notification.Warn("This can lead to a catastrophic error! Are you sure you want to continue?",true))
+            {
+                MessageBox.Show("You choose to continue");
+            }
+            else
+            {
+                MessageBox.Show("You chose to cancel");
+            }
+        }
+```
 
 ---
