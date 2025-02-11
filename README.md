@@ -24,6 +24,10 @@ xmlns:mn="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Contro
 
 - [Button](#Button)
 - [ProgressBar](#ProgressBar)
+- [TextBox](#TextBox)
+- [TopBar](#TopBar)
+- [Notification](#Notification)
+- [Navigator](#Navigator)
 
 ---
 
@@ -32,27 +36,27 @@ xmlns:mn="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Contro
 Use the following template to set the appearance of your buttons
 
 ```xml
-<Style TargetType="mn:Button" x:Key="ButtonWithDynamicTheme">
-    <!--Dark-->
-    <Setter Property="DarkHoveredForeground" Value="White"/>
-    <Setter Property="DarkNoHoveredForeground" Value="White"/>
-    <Setter Property="DarkHoveredBorderBrush" Value="Cyan"/>
-    <Setter Property="DarkNoHoveredBorderBrush" Value="White"/>
-    <Setter Property="DarkHoveredBackground" Value="White"/>
-    <!--Light-->
-    <Setter Property="LightHoveredForeground" Value="Violet"/>
-    <Setter Property="LightNoHoveredForeground" Value="#1e1e1e"/>
-    <Setter Property="LightHoveredBorderBrush" Value="Violet"/>
-    <Setter Property="LightNoHoveredBorderBrush" Value="#1e1e1e"/>
-    <Setter Property="LightHoveredBackground" Value="#1e1e1e"/>
-    <!--NoTheme-->
-    <Setter Property="HoveredBorderThickness" Value="1.6,0,0,0"/>
-    <Setter Property="NoHoveredBorderThickness" Value="0"/>
-    <Setter Property="HoveredCornerRadius" Value="5"/>
-    <Setter Property="NoHoveredCornerRadius" Value="0"/>
-    <Setter Property="HoveredBackOpacity" Value="0.2"/>
-    <Setter Property="NoHoveredBackOpacity" Value="0"/>
-</Style>
+  <Style TargetType="mn:Button" x:Key="ButtonWithDynamicTheme">
+      <!--Dark-->
+      <Setter Property="DarkHoveredForeground" Value="White"/>
+      <Setter Property="DarkNoHoveredForeground" Value="White"/>
+      <Setter Property="DarkHoveredBorderBrush" Value="Cyan"/>
+      <Setter Property="DarkNoHoveredBorderBrush" Value="White"/>
+      <Setter Property="DarkHoveredBackground" Value="White"/>
+      <!--Light-->
+      <Setter Property="LightHoveredForeground" Value="Red"/>
+      <Setter Property="LightNoHoveredForeground" Value="#1e1e1e"/>
+      <Setter Property="LightHoveredBorderBrush" Value="Red"/>
+      <Setter Property="LightNoHoveredBorderBrush" Value="#1e1e1e"/>
+      <Setter Property="LightHoveredBackground" Value="#1e1e1e"/>
+      <!--NoTheme-->
+      <Setter Property="HoveredBorderThickness" Value="30,0,0,0"/>
+      <Setter Property="NoHoveredBorderThickness" Value="1,0,0,0"/>
+      <Setter Property="HoveredCornerRadius" Value="0"/>
+      <Setter Property="NoHoveredCornerRadius" Value="0"/>
+      <Setter Property="HoveredBackOpacity" Value="0.2"/>
+      <Setter Property="NoHoveredBackOpacity" Value="0"/>
+  </Style>
 ```
 
 Apply the Style
@@ -101,8 +105,32 @@ Font size is automatically adjusted and all input fields share a theme
                         LightCaretBrush="Lime"
                         DarkForeground="White"
                         LightForeground="Black"
+                        HoveredMargin="0"
+                        NoHoveredMargin="3"/>
 ```
 
 There is also a read-only Text property to get the current text content
+
+---
+
+## TopBar
+
+This can help you quickly replace the zoom interaction provided by the default window
+
+```xml
+  <mn:TopBar VerticalAlignment="Top" Height="50"/>
+```
+
+---
+
+## Notification
+
+
+
+---
+
+## Navigator
+
+
 
 ---

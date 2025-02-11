@@ -1,5 +1,4 @@
 ﻿using MinimalisticWPF.Theme;
-using MinimalisticWPF.TransitionSystem;
 using System.Windows;
 using System.Windows.Media;
 
@@ -32,11 +31,11 @@ namespace MinimalisticWPF.Controls.ViewModel
         [Observable(CanDependency: true)]
         private double _thickness = (double)3;
 
-        [Observable(CanDependency: true)]
+        [Observable(CanDependency: true, CanIsolated: true)]
         [Dark(nameof(Brushes.Cyan))]
         [Light(nameof(Brushes.Violet))]
         private Brush foreFill = Brushes.Cyan;
-        [Observable(CanDependency: true)]
+        [Observable(CanDependency: true, CanIsolated: true)]
         [Dark(nameof(Brushes.Gray))]
         [Light(nameof(Brushes.Gray))]
         private Brush backFill = Brushes.Gray;

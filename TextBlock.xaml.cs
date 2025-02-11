@@ -54,5 +54,15 @@ namespace MinimalisticWPF.Controls
             }
             OnTextChanged?.Invoke(this, e);
         }
+
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ViewModel.IsHovered = true;
+        }
+
+        private void UserControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ViewModel.IsHovered = false;
+        }
     }
 }

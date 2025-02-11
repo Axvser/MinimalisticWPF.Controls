@@ -7,9 +7,11 @@ namespace MinimalisticWPF.Controls.ViewModel
     public partial class TextBox
     {
         [Constructor]
-        private void SetInitialTheme()
+        private void SetInitialValue()
         {
             CurrentTheme = typeof(Dark);
+            HoveredTransition.SetParams(TransitionParams.Hover);
+            NoHoveredTransition.SetParams(TransitionParams.Hover);
         }
 
         [Observable(CanDependency: true)]
@@ -34,5 +36,8 @@ namespace MinimalisticWPF.Controls.ViewModel
 
         [Observable]
         private double visualLength = 0;
+
+        [Observable(CanHover:true)]
+        private double margin = (double)3;
     }
 }

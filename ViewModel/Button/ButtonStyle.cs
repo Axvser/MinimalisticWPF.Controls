@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using System.Windows;
 using MinimalisticWPF.Theme;
 using MinimalisticWPF.TransitionSystem;
-using MinimalisticWPF.Extension;
 
 namespace MinimalisticWPF.Controls.ViewModel
 {
@@ -27,17 +21,17 @@ namespace MinimalisticWPF.Controls.ViewModel
         [Observable(CanHover: true)]
         private CornerRadius _cornerRadius = new CornerRadius(0);
 
-        [Observable(CanHover: true)]
+        [Observable(CanHover: true, CanIsolated: true)]
         [Dark("White")]
         [Light("#1e1e1e")]
         private Brush _borderBrush = Brushes.White;
 
-        [Observable(CanHover: true)]
+        [Observable(CanHover: true, CanIsolated: true)]
         [Dark("White")]
         [Light("#1e1e1e")]
         private Brush _foreground = Brushes.White;
 
-        [Observable(CanHover: true)]
+        [Observable(CanHover: true, CanIsolated: true)]
         [Dark("Transparent")]
         [Light("Transparent")]
         private Brush _background = Brushes.Transparent;

@@ -7,7 +7,9 @@
              xmlns:vm="clr-namespace:MinimalisticWPF.Controls.ViewModel"
              xmlns:cvt="clr-namespace:MinimalisticWPF.Controls.Convertor"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="800" HorizontalContentAlignment="Left">
+             d:DesignHeight="200" d:DesignWidth="800" HorizontalContentAlignment="Left"
+             MouseEnter="UserControl_MouseEnter"
+             MouseLeave="UserControl_MouseLeave">
     <UserControl.DataContext>
         <vm:TextBox x:Name="ViewModel"/>
     </UserControl.DataContext>
@@ -21,12 +23,12 @@
                         Width="{Binding VisualLength}" 
                         BorderBrush="{Binding CaretBrush}" 
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                        Margin="3" 
+                        Margin="{Binding Margin}"
                         Grid.ZIndex="1"/>
                 <Border CornerRadius="0" 
                         BorderBrush="{Binding BorderBrush}" 
                         BorderThickness="0,0,0,2" 
-                        Margin="3">
+                        Margin="{Binding Margin}">
                     <TextBox FontSize="{TemplateBinding ActualHeight,Converter={StaticResource doublecvt}}" 
                              Foreground="{Binding Foreground}" 
                              CaretBrush="{Binding CaretBrush}" 
