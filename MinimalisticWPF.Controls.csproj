@@ -13,7 +13,7 @@
     <Description>Design some user controls based on [ MinimalisticWPF ]</Description>
     <Authors>Axvser</Authors>
     <PackageProjectUrl>https://github.com/Axvser/MinimalisticWPF.Controls</PackageProjectUrl>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
