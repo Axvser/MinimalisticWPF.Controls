@@ -11,21 +11,6 @@
              d:DesignHeight="40" d:DesignWidth="800">
     <UserControl.Resources>
         <cvt:DoubleConvertor x:Key="dcvt" Rate="0.618"/>
-        <Style TargetType="controls:Button" x:Key="DefaultTopBarButton">
-
-            <Setter Property="DarkHoveredForeground" Value="Cyan"/>
-            <Setter Property="DarkNoHoveredForeground" Value="White"/>
-
-            <Setter Property="LightHoveredForeground" Value="Red"/>
-            <Setter Property="LightNoHoveredForeground" Value="#1e1e1e"/>
-
-            <Setter Property="HoveredBorderThickness" Value="0"/>
-            <Setter Property="NoHoveredBorderThickness" Value="0"/>
-            <Setter Property="HoveredCornerRadius" Value="0"/>
-            <Setter Property="NoHoveredCornerRadius" Value="0"/>
-            <Setter Property="HoveredBackOpacity" Value="0"/>
-            <Setter Property="NoHoveredBackOpacity" Value="0"/>
-        </Style>
     </UserControl.Resources>
     <UserControl.DataContext>
         <vm:TopBar x:Name="ViewModel"/>
@@ -35,9 +20,9 @@
             <Grid Background="{Binding Background}">
                 <TextBlock Foreground="{Binding TitleBrush}" VerticalAlignment="Center" Cursor="Hand" Margin="20,0,0,0" Text="{Binding Title}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}" PreviewMouseDown="TextBlock_PreviewMouseDown"/>
                 <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                    <controls:Button Click="Button_Click" Style="{StaticResource DefaultTopBarButton}" Text="×" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
-                    <controls:Button Click="Button_Click_1" Style="{StaticResource DefaultTopBarButton}" Text="▢" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
-                    <controls:Button Click="Button_Click_2" Style="{StaticResource DefaultTopBarButton}" Text="－" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
+                    <controls:Button Click="Button_Click" Style="{Binding ButtonStyle,RelativeSource={RelativeSource AncestorType=local:TopBar}}" Text="×" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
+                    <controls:Button Click="Button_Click_1" Style="{Binding ButtonStyle,RelativeSource={RelativeSource AncestorType=local:TopBar}}" Text="▢" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
+                    <controls:Button Click="Button_Click_2" Style="{Binding ButtonStyle,RelativeSource={RelativeSource AncestorType=local:TopBar}}" Text="－" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
                 </StackPanel>
             </Grid>
         </ControlTemplate>

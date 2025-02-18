@@ -16,7 +16,7 @@ Dependency ¡ú
 
 Versions ¡ú
 
-[V1.1.0](#) `LTS`
+[V1.2.0](#) `LTS`
 
 ---
 
@@ -123,7 +123,23 @@ There is also a read-only `Text` property to get the current text content
 This can help you quickly replace the zoom interaction provided by the default window
 
 ```xml
-  <mn:TopBar VerticalAlignment="Top" Height="50"/>
+  <Style TargetType="mn:TopBar" x:Key="MyTopBar">
+            <Setter Property="DarkTitleBrush" Value="Cyan"/>
+            <Setter Property="LightTitleBrush" Value="Violet"/>
+  </Style>
+
+  <Style TargetType="mn:Button" x:Key="ButtonInTopBar">
+      <!--Dark-->
+      <Setter Property="DarkHoveredForeground" Value="Cyan"/>
+      <Setter Property="DarkNoHoveredForeground" Value="White"/>
+      <!--Light-->
+      <Setter Property="LightHoveredForeground" Value="Red"/>
+      <Setter Property="LightNoHoveredForeground" Value="Black"/>
+  </Style>
+
+  <mn:TopBar VerticalAlignment="Top" Height="50"
+             Style="{StaticResource MyTopBar}"
+             ButtonStyle="{StaticResource ResourceKey=ButtonInTopBar}"/>
 ```
 
 ---
@@ -135,17 +151,17 @@ Glass style notification window, supporting light and dark theme.
 - The bool value indicates whether the window is at the top
  
 ```csharp
-        private async void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            if (await Notification.Warn("This can lead to a catastrophic error! Are you sure you want to continue?",true))
-            {
-                MessageBox.Show("You choose to continue");
-            }
-            else
-            {
-                MessageBox.Show("You chose to cancel");
-            }
-        }
+  private async void Button_Click_3(object sender, RoutedEventArgs e)
+  {
+      if (await Notification.Warn("This can lead to a catastrophic error! Are you sure you want to continue?",true))
+      {
+          MessageBox.Show("You choose to continue");
+      }
+      else
+      {
+          MessageBox.Show("You chose to cancel");
+      }
+  }
 ```
 
 ---

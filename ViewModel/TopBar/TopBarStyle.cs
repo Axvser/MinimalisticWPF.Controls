@@ -15,12 +15,10 @@ namespace MinimalisticWPF.Controls.ViewModel
         [Light("Black")]
         private Brush titleBrush = Brushes.White;
 
-        [Observable(CanDependency: true, CanIsolated: true)]
-        [Dark(nameof(Brushes.Transparent))]
-        [Light(nameof(Brushes.Transparent))]
-        private Brush background = Brushes.Transparent;
-
         [Observable]
         private Thickness controlMargin = new Thickness(3, 0, 3, 0);
+
+        [Observable(CanDependency: true)]
+        private Style buttonStyle = new Style();
     }
 }
