@@ -37,5 +37,10 @@ namespace MinimalisticWPF.Controls
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
+
+        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.MainWindow.DragMove();
+        }
     }
 }

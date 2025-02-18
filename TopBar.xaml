@@ -33,7 +33,7 @@
     <UserControl.Template>
         <ControlTemplate>
             <Grid Background="{Binding Background}">
-                <TextBlock Foreground="{Binding TitleBrush}" VerticalAlignment="Center" Margin="20,0,0,0" HorizontalAlignment="Left" Text="{Binding Title}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
+                <TextBlock Foreground="{Binding TitleBrush}" VerticalAlignment="Center" Cursor="Hand" Margin="20,0,0,0" Text="{Binding Title}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}" PreviewMouseDown="TextBlock_PreviewMouseDown"/>
                 <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
                     <controls:Button Click="Button_Click" Style="{StaticResource DefaultTopBarButton}" Text="×" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>
                     <controls:Button Click="Button_Click_1" Style="{StaticResource DefaultTopBarButton}" Text="▢" Margin="{Binding ControlMargin}" Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" FontSize="{TemplateBinding ActualHeight,Converter={StaticResource dcvt}}"/>

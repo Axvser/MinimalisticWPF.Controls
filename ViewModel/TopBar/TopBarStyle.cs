@@ -1,4 +1,5 @@
 ﻿using MinimalisticWPF.Theme;
+using MinimalisticWPF.TransitionSystem;
 using System.Windows;
 using System.Windows.Media;
 
