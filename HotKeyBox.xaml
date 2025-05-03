@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="MinimalisticWPF.Controls.HotKeyBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MinimalisticWPF.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Template>
+        <ControlTemplate>
+            <Grid Width="{TemplateBinding Width}"
+                  Height="{TemplateBinding Height}">
+                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{Binding CornerRadius,RelativeSource={RelativeSource AncestorType=local:HotKeyBox}}"/>
+                <!--不一定要用TextBox,实际上能获取焦点并接受键盘输入的都可以-->
+                <!--"OnHotKeyReceived"是源生成器产生的Handler,它将接收到的Key用作快捷方式的注册-->
+                <TextBox KeyDown="OnHotKeyReceived"
+                         MouseEnter="TextBox_MouseEnter"
+                         MouseLeave="TextBox_MouseLeave"
+                         Width="{TemplateBinding Width}"
+                         Height="{TemplateBinding Height}"
+                         Text="{Binding Text, RelativeSource={RelativeSource AncestorType=local:HotKeyBox}}" 
+                         Foreground="{TemplateBinding Foreground}" 
+                         FontSize="{TemplateBinding FontSize}"
+                         IsReadOnly="True"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         BorderBrush="Transparent"
+                         TextAlignment="Center"
+                         VerticalContentAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

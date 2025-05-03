@@ -2,41 +2,32 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MinimalisticWPF.Controls"
-             xmlns:vm="clr-namespace:MinimalisticWPF.Controls.ViewModel"
-             xmlns:cvt="clr-namespace:MinimalisticWPF.Controls.Convertor"
              mc:Ignorable="d"
-             x:Name="Root"
-             d:DesignHeight="100" d:DesignWidth="300"
-             MouseEnter="Root_MouseEnter" 
-             MouseLeave="Root_MouseLeave" 
-             PreviewMouseLeftButtonDown="Root_PreviewMouseLeftButtonDown" 
-             PreviewMouseLeftButtonUp="Root_PreviewMouseLeftButtonUp">
-    <UserControl.DataContext>
-        <vm:Button x:Name="ViewModel"/>
-    </UserControl.DataContext>
-    <UserControl.Resources>
-        <cvt:DoubleConvertor x:Key="doublecvt" Rate="0.618"/>
-    </UserControl.Resources>
+             d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Template>
         <ControlTemplate>
-            <Grid Opacity="{TemplateBinding Opacity}">
-                <Border ClipToBounds="True"
-                        Grid.ZIndex="1"
-                        CornerRadius="{Binding CornerRadius}" 
-                        BorderThickness="{Binding BorderThickness}" 
-                        BorderBrush="{Binding BorderBrush}"/>
-                <Border Background="{Binding Background}"
-                        Opacity="{Binding BackOpacity}"
-                        CornerRadius="{Binding CornerRadius}"/>
-                <TextBlock Text="{Binding Text}"
-                           Grid.ZIndex="2"
-                           FontSize="{Binding ElementName=Root,Path=ActualHeight,Converter={StaticResource doublecvt}}"
-                           Foreground="{Binding Foreground}"
-                           TextAlignment="Center" 
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"/>
+            <Grid Width="{TemplateBinding Width}"
+                  Height="{TemplateBinding Height}">
+                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"/>
+                <Grid RenderTransform="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=ChildTransform}">
+                    <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=Text}"
+                           FontSize="{TemplateBinding FontSize}"
+                           FontFamily="{TemplateBinding FontFamily}"
+                           FontStretch="{TemplateBinding FontStretch}"
+                           FontStyle="{TemplateBinding FontStyle}"
+                           FontWeight="{TemplateBinding FontWeight}"
+                           Foreground="{TemplateBinding Foreground}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                    <Path Data="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=SVG}"
+                      Fill="{TemplateBinding Foreground}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"/>
+                </Grid>
             </Grid>
         </ControlTemplate>
     </UserControl.Template>
