@@ -15,18 +15,18 @@
                         Background="{TemplateBinding Background}"/>
                 <Grid RenderTransform="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=ChildTransform}">
                     <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=Text}"
-                           FontSize="{TemplateBinding FontSize}"
-                           FontFamily="{TemplateBinding FontFamily}"
-                           FontStretch="{TemplateBinding FontStretch}"
-                           FontStyle="{TemplateBinding FontStyle}"
-                           FontWeight="{TemplateBinding FontWeight}"
-                           Foreground="{TemplateBinding Foreground}"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-                    <Path Data="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=SVG}"
-                      Fill="{TemplateBinding Foreground}"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center"/>
+                               FontSize="{TemplateBinding FontSize}"
+                               FontFamily="{TemplateBinding FontFamily}"
+                               FontStretch="{TemplateBinding FontStretch}"
+                               FontStyle="{TemplateBinding FontStyle}"
+                               FontWeight="{TemplateBinding FontWeight}"
+                               Foreground="{TemplateBinding Foreground}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    <Grid RenderTransform="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=PathTransform}">
+                        <Path Data="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=SVG}"
+                              Fill="{TemplateBinding Foreground}"/>
+                    </Grid>
                 </Grid>
             </Grid>
         </ControlTemplate>

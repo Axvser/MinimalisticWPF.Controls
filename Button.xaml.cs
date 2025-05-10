@@ -96,6 +96,14 @@ namespace MinimalisticWPF.Controls
         internal static readonly DependencyProperty ChildTransformProperty =
             DependencyProperty.Register("ChildTransform", typeof(Transform), typeof(Button), new PropertyMetadata(Transform.Identity));
 
+        internal Transform PathTransform
+        {
+            get { return (Transform)GetValue(PathTransformProperty); }
+            set { SetValue(PathTransformProperty, value); }
+        }
+        internal static readonly DependencyProperty PathTransformProperty =
+            DependencyProperty.Register("PathTransform", typeof(Transform), typeof(Button), new PropertyMetadata(Transform.Identity));
+
         /// <summary>
         /// 尝试解析 Data 属性为 Geometry 对象，若失败，则将 Data 作为文本显示。
         /// <para>注意: 此举将基于 Min(宽,高) * ScaleRate 动态计算字体大小与SVG图大小</para>
@@ -104,6 +112,8 @@ namespace MinimalisticWPF.Controls
         {
             var size = Math.Min(ActualWidth, ActualHeight) * ContentScale;
             FontSize = size <= 0 ? 1 : size;
+            scale.ScaleX = ContentScale;
+            scale.ScaleY = ContentScale;
             try
             {
                 var geometry = Geometry.Parse(Data);
@@ -128,6 +138,7 @@ namespace MinimalisticWPF.Controls
          */
 
         private readonly RotateTransform rotate = new();
+        private readonly ScaleTransform scale = new();
 
         [Constructor]
         private void ApplyRotate()
@@ -136,12 +147,13 @@ namespace MinimalisticWPF.Controls
             MouseLeave += (s, e) => CanMonoBehaviour = false;
             Loaded += (s, e) =>
             {
-                UpdateRotateCenter();
+                UpdateCenter();
+                PathTransform = scale;
                 ChildTransform = rotate;
             };
             SizeChanged += (s, e) =>
             {
-                UpdateRotateCenter();
+                UpdateCenter();
             };
         }
 
@@ -176,11 +188,13 @@ namespace MinimalisticWPF.Controls
                 .Start();
         }
 
-        private void UpdateRotateCenter()
+        private void UpdateCenter()
         {
             var center = new Point(ActualWidth / 2, ActualHeight / 2);
             rotate.CenterX = center.X;
             rotate.CenterY = center.Y;
+            scale.CenterX = center.X;
+            scale.CenterY = center.Y;
         }
     } // 实时刷新
 
