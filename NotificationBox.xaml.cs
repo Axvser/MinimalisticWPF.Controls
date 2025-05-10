@@ -11,8 +11,8 @@ namespace MinimalisticWPF.Controls
 
         private bool _cancontinue = true;
 
-        public static bool Choose(string question,string title = T1)
-        {   
+        public static bool Choose(string question, string title = T1)
+        {
             var box = new NotificationBox()
             {
                 Text = question,
@@ -23,7 +23,7 @@ namespace MinimalisticWPF.Controls
             return box._cancontinue;
         }
         public static void Confirm(string message, string title = T2)
-        {   
+        {
             var box = new NotificationBox()
             {
                 Text = message,

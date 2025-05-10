@@ -1,8 +1,8 @@
-﻿using MinimalisticWPF.SourceGeneratorMark;
-using System.Windows.Controls;
-using System.Windows;
+﻿using MinimalisticWPF.HotKey;
+using MinimalisticWPF.SourceGeneratorMark;
 using MinimalisticWPF.Theme;
-using MinimalisticWPF.HotKey;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MinimalisticWPF.Controls
