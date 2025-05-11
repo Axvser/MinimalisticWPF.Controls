@@ -28,6 +28,22 @@ namespace MinimalisticWPF.Controls
 
     public partial class Button
     {
+        public VerticalAlignment ContentVerticalAlignment
+        {
+            get { return (VerticalAlignment)GetValue(ContentVerticalAlignmentProperty); }
+            set { SetValue(ContentVerticalAlignmentProperty, value); }
+        }
+        public static readonly DependencyProperty ContentVerticalAlignmentProperty =
+            DependencyProperty.Register("ContentVerticalAlignment", typeof(VerticalAlignment), typeof(Button), new PropertyMetadata(VerticalAlignment.Center));
+
+        public HorizontalAlignment ContentHorizontalAlignment
+        {
+            get { return (HorizontalAlignment)GetValue(ContentHorizontalAlignmentProperty); }
+            set { SetValue(ContentHorizontalAlignmentProperty, value); }
+        }
+        public static readonly DependencyProperty ContentHorizontalAlignmentProperty =
+            DependencyProperty.Register("ContentHorizontalAlignment", typeof(HorizontalAlignment), typeof(Button), new PropertyMetadata(HorizontalAlignment.Center));
+
         public CornerRadius CornerRadius
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }

@@ -21,8 +21,8 @@
                                FontStyle="{TemplateBinding FontStyle}"
                                FontWeight="{TemplateBinding FontWeight}"
                                Foreground="{TemplateBinding Foreground}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                               HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=ContentHorizontalAlignment}"
+                               VerticalAlignment="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=ContentVerticalAlignment}"/>
                     <Grid RenderTransform="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=PathTransform}">
                         <Path Data="{Binding RelativeSource={RelativeSource AncestorType=local:Button},Path=SVG}"
                               Fill="{TemplateBinding Foreground}"/>
