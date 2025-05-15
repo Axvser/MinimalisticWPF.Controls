@@ -13,7 +13,7 @@
 		<Description>Design some user controls based on [ MinimalisticWPF ]</Description>
 		<Authors>Axvser</Authors>
 		<PackageProjectUrl>https://github.com/Axvser/MinimalisticWPF.Controls</PackageProjectUrl>
-		<Version>2.0.2</Version>
+		<Version>2.0.3</Version>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	</PropertyGroup>
 
@@ -31,8 +31,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MinimalisticWPF" Version="4.9.5" />
-		<PackageReference Include="MinimalisticWPF.Generator" Version="4.2.0" />
+		<PackageReference Include="MinimalisticWPF" Version="4.9.7" />
+		<PackageReference Include="MinimalisticWPF.Generator" Version="4.3.1" />
 	</ItemGroup>
 
 	<ItemGroup>

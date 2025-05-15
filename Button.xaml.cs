@@ -196,7 +196,7 @@ namespace MinimalisticWPF.Controls
                 .SetParams((p) =>
                 {
                     p.Duration = 0.3;
-                    p.Completed += () =>
+                    p.Completed += (s,e) =>
                     {
                         rotate.Angle = 0;
                     };
