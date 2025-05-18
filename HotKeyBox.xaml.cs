@@ -24,9 +24,12 @@ namespace MinimalisticWPF.Controls
 
         partial void OnHotKeyUpdated() // 热键更新后,文本也更新
         {
-            Text = key == 0x0000 ?
-                string.Join(" > ", [.. HotKeyHelper.GetNames(modifiers)]) :
-                string.Join(" > ", [.. HotKeyHelper.GetNames(modifiers), key.ToString()]);
+            if (CanDefaultHotKeyText)
+            {
+                Text = key == 0x0000 ?
+                    string.Join(" > ", [.. HotKeyHelper.GetNames(modifiers)]) :
+                    string.Join(" > ", [.. HotKeyHelper.GetNames(modifiers), key.ToString()]);
+            }
         }
         partial void OnHotKeyCovered() // 如果其它Box内出现与此Box相同的热键,此Box注册的热键会被覆盖,此时清空文本
         {
@@ -53,6 +56,14 @@ namespace MinimalisticWPF.Controls
 
     public partial class HotKeyBox
     {
+        public bool CanDefaultHotKeyText
+        {
+            get { return (bool)GetValue(CanDefaultHotKeyTextProperty); }
+            set { SetValue(CanDefaultHotKeyTextProperty, value); }
+        }
+        public static readonly DependencyProperty CanDefaultHotKeyTextProperty =
+            DependencyProperty.Register("CanDefaultHotKeyText", typeof(bool), typeof(HotKeyBox), new PropertyMetadata(true));
+
         public CornerRadius CornerRadius
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
