@@ -31,6 +31,7 @@ xmlns:views="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Con
 - **[Button](#Button)** 
 - **[NotificationBox](#NotificationBox)**
 - **[HotKeyBox](#HotKeyBox)**
+- **[ScrollViewer](#ScrollViewer)**
 
 > 这些控件支持主题切换,下述代码演示了如何`手动切换主题`或`跟随系统主题`
 
@@ -113,8 +114,6 @@ DynamicTheme.Apply(typeof(Light));
 
 > 现代化风格的通知框
 
-> 设计这个控件时,我在特性中已经将效果参数声明完毕,所以完全不需要写Style
-
 ```csharp
 Loaded += (s, e) => NotificationBox.Choose("确定要继续吗?");
 Loaded += (s, e) => NotificationBox.Confirm("操作已成功执行!");
@@ -153,3 +152,7 @@ Loaded += (s, e) => NotificationBox.Confirm("操作已成功执行!");
             // e传递了快捷键的信息
         }
 ```
+
+### ScrollViewer ✨
+
+> 极简风格的ScrollViewer,支持主题切换、滚轮缩放
