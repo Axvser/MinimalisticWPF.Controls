@@ -32,6 +32,7 @@ xmlns:views="clr-namespace:MinimalisticWPF.Controls;assembly=MinimalisticWPF.Con
 - **[NotificationBox](#NotificationBox)**
 - **[HotKeyBox](#HotKeyBox)**
 - **[ScrollViewer](#ScrollViewer)**
+- **[FlowingCard](#FlowingCard)**
 
 > 这些控件支持主题切换,下述代码演示了如何`手动切换主题`或`跟随系统主题`
 
@@ -156,3 +157,9 @@ Loaded += (s, e) => NotificationBox.Confirm("操作已成功执行!");
 ### ScrollViewer ✨
 
 > 极简风格的ScrollViewer,支持主题切换、滚轮缩放
+
+### FlowingCard ✨
+
+> 带有流光效果的卡片（ 或者说Grid ），支持主题切换
+
+

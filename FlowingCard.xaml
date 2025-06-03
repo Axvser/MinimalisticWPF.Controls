@@ -1,0 +1,30 @@
+﻿<Grid x:Class="MinimalisticWPF.Controls.FlowingCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MinimalisticWPF.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="450" x:Name="Root">
+    <Grid>
+        <!--可见边框-->
+        <Border Grid.ZIndex="0"
+                CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=CornerRadius}"
+                BorderThickness="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=BorderThickness}"
+                BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=ShadowBrush}"/>
+        <!--背景遮罩-->
+        <Border Grid.ZIndex="-1"
+                Background="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=Background}" 
+                CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=CornerRadius}"
+                Margin="2"/>
+        <!--模糊光-->
+        <Border Grid.ZIndex="-2"
+                CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=CornerRadius}"
+                BorderThickness="100"
+                BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=ShadowBrush}">
+            <Border.Effect>
+                <BlurEffect Radius="{Binding RelativeSource={RelativeSource AncestorType=local:FlowingCard},Path=BlurRadius}"/>
+            </Border.Effect>
+        </Border>
+    </Grid>
+</Grid>
